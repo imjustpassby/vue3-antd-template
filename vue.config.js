@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const isProduction = process.env.NODE_ENV === 'production' // 是否是生产环境
 const CompressionWebpackPlugin = require('compression-webpack-plugin') // 开启gzip压缩， 按需引用
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const resolve = dir => path.join(__dirname, dir)
 /**
  * 代码压缩工具
@@ -11,7 +11,7 @@ const resolve = dir => path.join(__dirname, dir)
  */
 const TerserPlugin = require('terser-webpack-plugin')
 
-const port = 9001
+const port = 9111
 
 /**
  * 普通代理模式
@@ -78,6 +78,7 @@ module.exports = {
     config.resolve.alias.set('views', resolve('src/views'))
     config.resolve.alias.set('store', resolve('src/store'))
     config.resolve.alias.set('img', resolve('src/assets/img'))
+    config.resolve.alias.set('components', resolve('src/components'))
   },
 
   configureWebpack: {
@@ -89,8 +90,8 @@ module.exports = {
         threshold: 10240,
         minRatio: 0.8
       }),
-      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /zh-cn/), // 只引入 moment 的中文包
-      new BundleAnalyzerPlugin({ analyzerPort: 8888 }) //生产模式开启查看打包分析结果
+      new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /zh-cn/) // 只引入 moment 的中文包
+      //new BundleAnalyzerPlugin({ analyzerPort: 8888 }) //生产模式开启查看打包分析结果
     ],
     devtool: !isProduction ? 'cheap-module-eval-source-map' : false,
     performance: {

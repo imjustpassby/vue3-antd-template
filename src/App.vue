@@ -1,11 +1,16 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
-
-    <transition name="fade-transform">
-      <router-view />
-    </transition>
-  </div>
+  <router-view />
+  <MyFooter></MyFooter>
 </template>
+
+<script lang="ts">
+import MyFooter from 'components/Layout/myFooter.vue'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'app',
+  components: {
+    MyFooter
+  }
+})
+</script>
