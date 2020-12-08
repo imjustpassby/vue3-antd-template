@@ -1,16 +1,24 @@
 <template>
   <div class="footer">
-    footer
+    <p>{{ footerMsg }}</p>
+    <p>@{{ author }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MyComponent',
   props: {
-    msg: String
+    author: {
+      type: String
+    }
+  },
+  setup() {
+    const footerMsg = ref('this is my footer')
+
+    return { footerMsg }
   }
 })
 </script>

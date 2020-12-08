@@ -4,7 +4,7 @@
       <component :is="Component" />
     </transition>
   </router-view>
-  <MyFooter></MyFooter>
+  <MyFooter author="imjustpassby"></MyFooter>
 </template>
 
 <script lang="ts">
