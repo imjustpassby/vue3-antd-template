@@ -1,5 +1,9 @@
 <template>
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <transition name="fade-transform" appear>
+      <component :is="Component" />
+    </transition>
+  </router-view>
   <MyFooter></MyFooter>
 </template>
 

@@ -4,8 +4,9 @@
     <router-link to="/">Home</router-link>
     |
     <router-link to="/about">About</router-link>
+
     <router-view v-slot="{ Component }">
-      <transition name="fade-transform">
+      <transition name="fade-transform" appear>
         <component :is="Component" />
       </transition>
     </router-view>
