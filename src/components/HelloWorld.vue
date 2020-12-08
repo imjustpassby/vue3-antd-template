@@ -1,17 +1,28 @@
 <template>
   <div class="hello">
-    <a-button>antd button</a-button>
+    <a-button @click="emitEvent">click me to send a msg!</a-button>
     <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+import Bus from '@/util/eventBus'
 export default defineComponent({
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  setup() {
+    const emitEvent = () => {
+      Bus.emit('hello', {
+        msg: 'hello! this is a message from HelloWorld component'
+      })
+    }
+
+    return {
+      emitEvent
+    }
   }
 })
 </script>

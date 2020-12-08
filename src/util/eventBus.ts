@@ -1,3 +1,5 @@
-import mitt from 'mitt'
-const bus = mitt()
-export default bus
+import mitt, { Emitter } from 'mitt'
+
+const Bus: Emitter = mitt()
+
+export default Bus
