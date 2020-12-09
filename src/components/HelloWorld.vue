@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Bus from '@/util/eventBus'
+import Bus from '@/utils/eventBus'
 export default defineComponent({
   name: 'HelloWorld',
   props: {

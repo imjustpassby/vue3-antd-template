@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
-import Bus from '@/util/eventBus'
+import Bus from '@/utils/eventBus'
 export default defineComponent({
   name: 'Home',
   components: {

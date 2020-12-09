@@ -1,4 +1,4 @@
-import { isDate, isPlainObject, isURLSearchParams } from './util'
+import { isDate, isPlainObject, isURLSearchParams } from './commonMethod'
 
 interface URLOrigin {
   protocol: string
