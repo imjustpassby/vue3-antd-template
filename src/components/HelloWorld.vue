@@ -1,12 +1,14 @@
 <template>
-  <div class="hello">
+  <div>
     <a-button @click="emitEvent">click me to send a msg!</a-button>
+    <a-button @click="changeTitle">click me to change title!</a-button>
     <h1>{{ msg }}</h1>
+    <p>title:{{ articleTitle }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, toRef, reactive } from 'vue'
 import Bus from '@/utils/eventBus'
 export default defineComponent({
   name: 'HelloWorld',
@@ -20,8 +22,21 @@ export default defineComponent({
       })
     }
 
+    const article = reactive({
+      title: 'ts-book',
+      author: 'huangyi'
+    })
+
+    const articleTitle = toRef(article, 'title')
+
+    const changeTitle = () => {
+      articleTitle.value = 'ts-axios'
+    }
+
     return {
-      emitEvent
+      emitEvent,
+      articleTitle,
+      changeTitle
     }
   }
 })
