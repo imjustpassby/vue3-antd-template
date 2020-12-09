@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div>Layout, &quot;{{ welcome }}&quot; from vuex</div>
+    <div>Layout, &quot;{{ userName }}&quot; from vuex</div>
     <a-button @click="setName">change username</a-button>
     <br />
     <router-link to="/">Home</router-link>
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 export default defineComponent({
   name: 'Layout',
@@ -24,9 +24,17 @@ export default defineComponent({
   setup() {
     const store = useStore()
 
+    onMounted(() => {
+      console.log(store.state.user.name)
+    })
+
+    const setName = () => {
+      store.commit('user/SET_NAME', 'imjustpassby')
+    }
+
     return {
-      welcome: computed(() => store.state.user.name),
-      setName: store.commit('user/SET_NAME', 'imjustpassby')
+      userName: computed(() => store.state.user.name),
+      setName
     }
   }
 })

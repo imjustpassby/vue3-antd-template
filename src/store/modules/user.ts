@@ -10,7 +10,7 @@ enum StorageKey {
 
 const state = {
   token: Storage.get(StorageKey.ACCESS_TOKEN, ''),
-  name: 'user',
+  name: 'default user',
   avatar: '',
   roles: [],
   info: Storage.get(StorageKey.CURRENT_USER, {})
