@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import MyFooter from 'components/Layout/myFooter.vue'
+import MyFooter from 'components/Layout/components/myFooter.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({

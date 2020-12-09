@@ -10,8 +10,7 @@ enum StorageKey {
 
 const state = {
   token: Storage.get(StorageKey.ACCESS_TOKEN, ''),
-  name: '',
-  welcome: '',
+  name: 'user',
   avatar: '',
   roles: [],
   info: Storage.get(StorageKey.CURRENT_USER, {})
@@ -26,9 +25,8 @@ const user: Module<StateType, any> = {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    SET_NAME: (state, { name, welcome }) => {
+    SET_NAME: (state, name) => {
       state.name = name
-      state.welcome = welcome
     },
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar

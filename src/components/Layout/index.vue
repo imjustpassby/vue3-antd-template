@@ -1,6 +1,8 @@
 <template>
   <div class="layout">
-    <div>Layout</div>
+    <div>Layout, &quot;{{ welcome }}&quot; from vuex</div>
+    <a-button @click="setName">change username</a-button>
+    <br />
     <router-link to="/">Home</router-link>
     |
     <router-link to="/about">About</router-link>
@@ -14,11 +16,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
 export default defineComponent({
   name: 'Layout',
-  components: {}
+  components: {},
+  setup() {
+    const store = useStore()
+
+    return {
+      welcome: computed(() => store.state.user.name),
+      setName: store.commit('user/SET_NAME', 'imjustpassby')
+    }
+  }
 })
 </script>
 <style lang="less" scoped>

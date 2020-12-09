@@ -9,7 +9,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: 'MyComponent',
+  name: 'MyFooter',
   props: {
     author: {
       type: String
@@ -24,8 +24,6 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .footer {
-  position: sticky;
-  top: 100vh;
   background: grey;
 }
 </style>

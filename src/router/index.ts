@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from 'components/Layout/index.vue'
+import NProgress from 'nprogress' // 进度条
+import 'nprogress/nprogress.css' // 进度条样式
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -30,4 +33,12 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  NProgress.start()
+  next()
+})
+
+router.afterEach(() => {
+  NProgress.done()
+})
 export default router

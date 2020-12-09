@@ -3,3 +3,8 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'nprogress' {
+  const NProgress: any;
+  export default NProgress;
+}
