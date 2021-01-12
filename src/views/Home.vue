@@ -40,13 +40,16 @@ export default defineComponent({
 
     const CancelToken = axios.CancelToken
     let cancelFunc: Canceler
-    const cancel = request
-      .get('/cancel/get', {
-        cancelToken: new CancelToken(c => {
-          cancelFunc = c
-          console.log('cancel: ', cancelFunc)
-        })
+    const cancel = request('/api/cancel/post', {
+      baseURL: 'http://localhost:9111',
+      method: 'POST',
+      data: {
+        cancel: 'cancel'
+      },
+      cancelToken: new CancelToken(c => {
+        cancelFunc = c
       })
+    })
       .then(res => {
         console.log('cancel request', res)
       })
