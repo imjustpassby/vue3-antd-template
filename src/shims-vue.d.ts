@@ -5,6 +5,11 @@ declare module '*.vue' {
 }
 
 declare module 'nprogress' {
-  const NProgress: any;
-  export default NProgress;
+  const NProgress: any
+  export default NProgress
+}
+
+declare module 'query-string' {
+  const qs: any
+  export default qs
 }

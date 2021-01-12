@@ -20,7 +20,10 @@
       Array now is reactive! ----------
       <span v-for="item in frontEnd" :key="item">{{ item }} &nbsp;</span>
     </p>
-    <p>{{ database.mysql._object.mysql }}</p>
+    <p>
+      database.mysql version will change in 3000ms :-----------
+      {{ database.mysql._object.mysql }}
+    </p>
   </div>
 </template>
 
@@ -53,7 +56,7 @@ export default defineComponent({
 
     const database = toRefs(
       reactive({
-        mysql: 'mysql',
+        mysql: 'mysql4.6',
         oracle: 'oracle',
         mongodb: 'mongodb'
       })
@@ -85,7 +88,7 @@ export default defineComponent({
     setTimeout(() => {
       database.mysql.value = 'mysql5.7'
       // 数据，视图都更新了
-    }, 1000)
+    }, 3000)
 
     console.log(
       `database.mysql is Ref? ${isRef(database.mysql)} ${database.mysql.value}`
